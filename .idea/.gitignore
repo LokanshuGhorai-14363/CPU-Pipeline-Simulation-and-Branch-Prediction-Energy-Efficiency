@@ -8,3 +8,6 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+#file name too long fix for "CPU-Pipeline-Simulation-and-Branch-Prediction-Energy-Efficiency.kotlin_module"
+out/
+.idea/
