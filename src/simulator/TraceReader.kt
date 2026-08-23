@@ -46,21 +46,3 @@ class TraceReader {
         return instructions
     }
 }
-
-fun main() {
-    // Mock test data representing a mini trace file format: [PC] [Type] [Outcome]
-    val mockTraceData = """
-        0x40001200 COND 1
-        0x40001204 NON_BRANCH 0
-        0x40001208 UNCOND 1
-    """.trimIndent()
-
-    val tempFile = File.createTempFile("mock_trace", ".txt")
-    tempFile.writeText(mockTraceData)
-
-    val reader = TraceReader()
-    val parsedInstructions = reader.parseTrace(tempFile.absolutePath)
-
-    println("Successfully parsed ${parsedInstructions.size} instructions:")
-    parsedInstructions.forEach { println(it) }
-}
