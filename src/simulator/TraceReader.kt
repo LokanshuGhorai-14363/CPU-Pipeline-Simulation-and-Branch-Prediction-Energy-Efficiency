@@ -1,6 +1,8 @@
+package simulator
+
 import java.io.File
 
-// Phase 1: Instruction Data Structure and Trace Reader
+// Phase 1: simulator.main.simulator.Instruction Data Structure and Trace Reader
 
 enum class InstructionType {
     CONDITIONAL,
