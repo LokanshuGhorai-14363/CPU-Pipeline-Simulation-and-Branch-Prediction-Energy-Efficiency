@@ -168,6 +168,12 @@ class ExecuteStage : PipelineStage {
         }
         val predictedTaken = input.predictedTaken ?: false
 
+        when (input.instruction.type) {
+            InstructionType.CONDITIONAL, InstructionType.UNCONDITIONAL ->
+                context.predictor.update(input.pc, actualTaken, predictedTaken)
+            InstructionType.NON_BRANCH -> Unit
+        }
+
         if (predictedTaken != actualTaken) {
             context.mispredictDetectedThisCycle = true
             context.redirectPending = true
